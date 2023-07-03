@@ -4,8 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-// import Networth from "./scenes/networth";
-// import Cashflow from "./scenes/cashflow";
+import CashFlow from "./scenes/cashflow";
 // import Budget from "./scenes/budget";
 // import Form from "./scenes/form";
 // import Pie from "./scenes/pie";
@@ -25,7 +24,7 @@ function App() {
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              {/* <Route path="/cashflow" element={<Cashflow />} /> */}
+              <Route path="/cashflow" element={<CashFlow />} />
               {/* <Route path="/budget" element={<Budget />} /> */}
               {/* <Route path="/form" element={<Form />} /> */}
               {/* <Route path="/pie" element={<Pie />} /> */}
