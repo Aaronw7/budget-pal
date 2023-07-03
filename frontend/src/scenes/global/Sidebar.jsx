@@ -5,10 +5,27 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+
+const Item = ({ title, to, icon, selected, setSelected }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
+    <MenuItem
+      active={selected === title}
+      style={{ color: colors.gray[100]}}
+      onClick={() => setSelected(title)}
+      icon={icon}
+    >
+      <Typography>{title}</Typography>
+      <Link to={to}/>
+    </MenuItem>
+  )
+}
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -22,10 +39,10 @@ const Sidebar = () => {
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`
         },
-        "& .pro-inner-wrapper": {
+        "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important"
         },
-        "& .pro-inner-item": {
+        "& .pro-icon-item": {
           padding: "5px 35px 5px 20px !important"
         },
         "& .pro-inner-item:hover": {
@@ -92,6 +109,44 @@ const Sidebar = () => {
               </Box>
             </Box>
           )}
+
+          <Box pl={isCollapsed ? undefined : "10%"}>
+            <Item
+              title="Dashboard"
+              to="/"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Typography
+              variant="h6"
+              color={colors.gray[300]}
+              sx={{ m: "15px 0 5px 20px"}}
+            >
+              Tools
+            </Typography>
+            <Item
+              title="Cash Flow"
+              to="/cashflow"
+              icon={<AttachMoneyIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Budget"
+              to="/budget"
+              icon={<PieChartOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Net Worth"
+              to="/networth"
+              icon={<TimelineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </Box>
         </Menu>
       </ProSidebar>
     </Box>
