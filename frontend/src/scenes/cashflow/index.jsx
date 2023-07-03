@@ -48,21 +48,25 @@ const CashFlow = () => {
               ? colors.greenAccent[400]
               : colors.redAccent[400]
           }>
-            {amount}
+            ${amount}
           </Typography>
         )
       }
     },
     { field: "category", headerName: "CATEGORY", flex: 1 },
-    { field: "month", headerName: "MONTH", align: "center" },
+    { field: "month", headerName: "MONTH", headerAlign:"center", align: "center" },
     { field: "year", headerName: "YEAR" }
   ]
 
   return (
     <Box m="20px">
       <Header title="CASH FLOW" subtitle="Track your Income and Expenses" />
-      <Box display="flex" sx={{ flexDirection: "row-reverse"}}>
-        <Box width="30%">
+      <Box display="flex" sx={{
+        flexDirection: "row-reverse",
+        justifyContent: "space-between",
+        flexWrap:"wrap"
+      }}>
+        <Box width="30%" flexGrow={1}>
           <Formik
             onSubmit={handleFormSubmit}
             initialValues={initialValues}
@@ -169,7 +173,7 @@ const CashFlow = () => {
             )}
           </Formik>
         </Box>
-        <Box width="70%">
+        <Box width="70%" flexGrow={1}>
           <DataGrid rows={mockCashFlowData} columns={columns} />
         </Box>
       </Box>
