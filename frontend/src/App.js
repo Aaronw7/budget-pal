@@ -9,7 +9,7 @@ import Dashboard from "./scenes/dashboard";
 // import Bar from "./scenes/bar";
 // import Form from "./scenes/form";
 // import Pie from "./scenes/pie";
-// import Line from "./scenes/line";s
+// import Line from "./scenes/line";
 
 
 function App() {
