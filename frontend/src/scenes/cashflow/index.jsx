@@ -58,15 +58,28 @@ const CashFlow = () => {
     { field: "year", headerName: "YEAR" }
   ]
 
+  const gridTemplateLarge = `
+  "a a a b"
+  "a a a b"
+  `;
+
   return (
     <Box m="20px">
       <Header title="CASH FLOW" subtitle="Track your Income and Expenses" />
-      <Box display="flex" sx={{
+      {/* <Box
+        display="flex"
+        sx={{
         flexDirection: "row-reverse",
         justifyContent: "space-between",
         flexWrap:"wrap"
-      }}>
-        <Box width="30%" flexGrow={1}>
+      }}> */}
+      <Box
+        display="grid"
+        gap="30px"
+        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+        sx={{ gridTemplateAreas: gridTemplateLarge }}
+      >
+        <Box flexGrow={1} sx={{ gridArea: 'b' }}>
           <Formik
             onSubmit={handleFormSubmit}
             initialValues={initialValues}
@@ -173,7 +186,7 @@ const CashFlow = () => {
             )}
           </Formik>
         </Box>
-        <Box width="70%" flexGrow={1}>
+        <Box flexGrow={1} sx={{ gridArea:'a' }}>
           <DataGrid rows={mockCashFlowData} columns={columns} />
         </Box>
       </Box>
