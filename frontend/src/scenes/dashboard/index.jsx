@@ -19,9 +19,18 @@ const Dashboard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* Row 1 */}
         <Box
-          gridColumn="span 4"
+          gridColumn="span 6"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          Net Worth
+        </Box>
+        <Box
+          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -30,7 +39,7 @@ const Dashboard = () => {
           Income
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -39,15 +48,25 @@ const Dashboard = () => {
           Expense
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn="span 6"
+          gridRow="span 2"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
-          Net Worth
+          Net Worth Graph
         </Box>
-        {/* Row 2 */}
+        <Box
+          gridColumn="span 6"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          Budget Chart
+        </Box>
       </Box>
     </Box>
   )
