@@ -59,27 +59,39 @@ const CashFlow = () => {
   ]
 
   const gridTemplateLarge = `
-  "a a a b"
-  "a a a b"
+  "b b b a"
+  "b b b a"
+  `;
+
+  const gridTemplateSmall = `
+  "a"
+  "a"
+  "a"
+  "a"
+  "b"
+  "b"
+  "b"
   `;
 
   return (
     <Box m="20px">
       <Header title="CASH FLOW" subtitle="Track your Income and Expenses" />
-      {/* <Box
-        display="flex"
-        sx={{
-        flexDirection: "row-reverse",
-        justifyContent: "space-between",
-        flexWrap:"wrap"
-      }}> */}
       <Box
         display="grid"
         gap="30px"
-        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-        sx={{ gridTemplateAreas: gridTemplateLarge }}
+        // gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+        // sx={{ gridTemplateAreas: gridTemplateLarge }}
+        sx= {
+          isNonMobile ? {
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+            gridTemplateAreas: gridTemplateLarge,
+          } : {
+            gridAutoColumns: "1fr",
+            gridTemplateAreas: gridTemplateSmall,
+          }
+        }
       >
-        <Box flexGrow={1} sx={{ gridArea: 'b' }}>
+        <Box flexGrow={1} sx={{ gridArea: "a" }}>
           <Formik
             onSubmit={handleFormSubmit}
             initialValues={initialValues}
@@ -186,7 +198,7 @@ const CashFlow = () => {
             )}
           </Formik>
         </Box>
-        <Box flexGrow={1} sx={{ gridArea:'a' }}>
+        <Box flexGrow={1} sx={{ gridArea:"b" }}>
           <DataGrid rows={mockCashFlowData} columns={columns} />
         </Box>
       </Box>
