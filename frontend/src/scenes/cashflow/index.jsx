@@ -71,6 +71,8 @@ const CashFlow = () => {
   "b"
   "b"
   "b"
+  "b"
+  "b"
   `;
 
   return (
@@ -79,8 +81,6 @@ const CashFlow = () => {
       <Box
         display="grid"
         gap="30px"
-        // gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-        // sx={{ gridTemplateAreas: gridTemplateLarge }}
         sx= {
           isNonMobile ? {
             gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -104,7 +104,7 @@ const CashFlow = () => {
                   gap="30px"
                   gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                   sx={{
-                    "& > div": { gridColumn: isNonMobile ? undefined : "span 4"}
+                    "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }
                   }}
                 >
                   <TextField
