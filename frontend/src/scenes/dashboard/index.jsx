@@ -67,6 +67,15 @@ const Dashboard = () => {
         >
           Budget Chart
         </Box>
+        <Box
+          gridColumn="span 6"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          Net Worth
+        </Box>
       </Box>
     </Box>
   )
