@@ -1,7 +1,7 @@
 # budget-pal
 
 Beginner Friendly Budgeting Application
-MERN with MUI
+React with MUI
 
 *Currently Front End Implemented Only*
 
